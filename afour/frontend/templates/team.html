@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="vh-25" >
+  <div class="container py-5 h-50 mt-4">
+    <div class="row d-flex justify-content-center align-items-center h-20">
+      <div class="col col-lg-9 col-xl-7">
+        <div class="card rounded-5 vh-40">
+          {% comment %} <img alt="Card image cap" class="card-img-top img-fluid" src="/static/backgounds.jpg" /> {% endcomment %}
+    <div class="card-block">
+          {% comment %} <img class="card-img-top" src="/static/backgounds.jpg" alt="Card image" style="width:100%"> {% endcomment %}
+          <div class="card-body p-4 ">
+  <form action={% url 'team_csv'%}>
+  
+<div class="mb-6">
+    <label for="skill_domain" class="form-label"><span><b>Skill Domain</b></span></label>
+    <select  class="custom-select mb-4" id="skill_domain" name="skill_domain" hx-get="{% url 'loadskill' %}" hx-trigger="change" hx-target="#loadskill">
+      <option value="tech" selected>TECH</option>
+      <option value="pm">PM</option>
+      <option value="buisness">BUISNESS</option>
+      </select>
+  </div>
+
+  <div class="mb-6" id="loadskill">
+    {% include 'loadskill.html' %}
+   </div>
+
+   <div class="mb-6">
+    <label for="skill_level" class="form-label"><span > <b>Skill Level<b></span></label>
+    <select  class="custom-select mb-4" id="skill_level" name="skill_level">
+      <option value="basic" selected>BASIC</option>
+      <option value="inter">INTERMEDIATE</option>
+      <option value="exp">EXPERT</option>
+      </select>
+  </div>
+
+    <div class="mb-6">
+        <label for="skill-experience" class="form-label"><span><b>Skill Experience</b></span></label>
+        <input type="text" name="skill_experience" id="skill_experience">
+    </div>
+
+   <button type="submit" class="btn btn-success">Submit</button>
+
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+{% endblock content %}

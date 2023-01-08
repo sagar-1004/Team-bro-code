@@ -1,0 +1,8 @@
+<label for="skill_name" class="form-label"><span><b>Skill Name</b></span></label>
+<input list="skills" class="custom-select mb-6" name="skill_name" >
+    <datalist id="skills">
+    {%for i in skills%}
+    <option value={{i.skill_name}}>{{i.skill_name}}</option>
+    {%endfor%}
+    </datalist>
+</select>

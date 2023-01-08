@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+    <div class="row">
+    <div class="col-sm-12">
+      <div class="dataTables_scroll">
+        <div class="dataTables_scrollHead" style="overflow: hidden; position: relative; border: 0px; width: 100%">
+          <div class="dataTables_scrollHeadInner" style="box-sizing: border-box; width: 100%; padding-right: 0px">
+          <table class="table table-bordered table-striped table-vcenter js-dataTable-full dataTable no-footer" role="grid" style="margin-left: 0px; width: 100%"id="myTable">
+              <thead>
+                <tr role="row">
+                  <th
+                    class="text-center "
+                    
+                    tabindex="0"
+                    aria-controls="DataTables_Table_0"
+                    rowspan="1"
+                    colspan="1"
+                    aria-sort="descending"
+                    aria-label=": activate to sort column ascending"
+                  >Username</th>
+                  {% comment %}  {% endcomment %}
+    
+    
+                </tr>
+            </thead>
+    <a class="dropdown-item" href="{% url 'team_csv' %}">Team</a>
+            <tbody>
+              {%for b in b %}
+              <tr>
+                <td class=" text-center">{{b.username}}  </td>
+              </tr>
+              {%endfor%}
+            
+            </tbody> 
+                
+    
+    
+    
+      </div></div>
+    
+         
+    
+    
+    
+    
+</div>
+
+
+{% endblock content %}

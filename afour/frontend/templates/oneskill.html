@@ -1,0 +1,64 @@
+{% extends './base.html' %} 
+{% load static %}
+
+
+
+
+      {% block content %}
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.1/css/dataTables.dateTime.min.css">
+    <div>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel1">Add Elements</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            
+           <form action="http://127.0.0.1:8000/api/skillview" method="post" autocomplete="off">{%csrf_token%}
+         
+             <div class="mb-6">
+                 <label for="username" class="form-label">User Name</label>
+                 <input type="text" class="form-control" id="username" name="username" value={{user.id}}>
+               </div>
+    
+               <div class="mb-6">
+                <label for="skill_domain" class="form-label">Skill Domain</label>
+                <select  class="custom-select mb-4" id="skill_domain" name="skill_domain" hx-get="{% url 'loadskill' %}" hx-trigger="change" hx-target="#loadskill">
+                  <option value="tech" selected>TECH</option>
+                  <option value="pm">PM</option>
+                  <option value="buisness">BUISNESS</option>
+                  </select>
+              </div>
+
+                <div class="mb-6" id="loadskill">
+                {% include 'loadskill.html' %}
+               </div>
+              
+               <div class="mb-6">
+                 <label for="skill_level" class="form-label">Skill Level</label>
+                 <input type="text" class="form-control" id="skill_level" name="skill_level" >
+               </div>
+
+               <div class="mb-6">
+                 <label for="skill_exp" class="form-label">Skill Experience</label>
+                 <input type="text" class="form-control" id="skill_exp" name="skill_exp" >
+               </div>
+    
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <input   class="btn btn-primary" style="background-color:#0d6efd"type="submit" value="Submit">
+              </div>
+             
+           </form>
+            
+          </div>
+         
+        </div>
+      </div>
+    </div>
+
+{% endblock content %}
